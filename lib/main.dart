@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screens/chat_room.dart';
+import 'package:flutter_application_1/screens/home.dart';
+import 'package:flutter_application_1/screens/login.dart';
+import 'package:flutter_application_1/screens/signup.dart';
 
 void main() {
   runApp(const MiAplicacion());
@@ -11,253 +15,99 @@ class MiAplicacion extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-        title: "Mi app en clase",
-        home: PaginaPrincipal(title: "Titulo pagina"));
+        title: "Mi app en clase", home: ChatRoom(title: "Titulo pagina"));
   }
 }
 
-class PaginaPrincipal extends StatefulWidget {
-  const PaginaPrincipal({super.key, required this.title});
+
+
+
+/* 
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key, required this.title});
+
+  // This widget is the home page of your application. It is stateful, meaning
+  // that it has a State object (defined below) that contains fields that affect
+  // how it looks.
+
+  // This class is the configuration for the state. It holds the values (in this
+  // case the title) provided by the parent (in this case the App widget) and
+  // used by the build method of the State. Fields in a Widget subclass are
+  // always marked "final".
 
   final String title;
 
   @override
-  State<PaginaPrincipal> createState() => _EstadoPrincipal();
+  State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _EstadoPrincipal extends State<PaginaPrincipal> {
+class _MyHomePageState extends State<MyHomePage> {
+  int _counter = 0;
+
+  void _incrementCounter() {
+    setState(() {
+      // This call to setState tells the Flutter framework that something has
+      // changed in this State, which causes it to rerun the build method below
+      // so that the display can reflect the updated values. If we changed
+      // _counter without calling setState(), then the build method would not be
+      // called again, and so nothing would appear to happen.
+      _counter++;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    // This method is rerun every time setState is called, for instance as done
+    // by the _incrementCounter method above.
+    //
+    // The Flutter framework has been optimized to make rerunning build methods
+    // fast, so that you can just rebuild anything that needs updating rather
+    // than having to individually change instances of widgets.
     return Scaffold(
-        //appBar: AppBar(
-        //  title: const Text(
-        //    "Esta es mi primera app ndeah",
-        //  ),
-        //  backgroundColor: Colors.black,
-        //  foregroundColor: Colors.white,
-        //  centerTitle: true,
-        //),
-        body: Padding(
-      padding: const EdgeInsetsDirectional.only(top: 26),
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Expanded(
-                  child: Container(
-                color: const Color(0xff1b7d6e),
-                child: const Row(
-                  children: [
-                    SizedBox(
-                      height: 60,
-                      width: 70,
-                      child: Icon(
-                        Icons.account_circle,
-                        color: Colors.white,
-                        size: 40.0,
-                        semanticLabel:
-                            'Text to announce in accessibility modes',
-                      ),
-                    ),
-                    Expanded(
-                      child: Padding(
-                          padding:
-                              EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-                          child: Text(
-                            "Agustin Carbajal",
-                            style: TextStyle(fontSize: 18, color: Colors.white),
-                          )),
-                    ),
-                  ],
-                ),
-              )),
-            ],
-          ),
-          Expanded(
-            child: Container(
-              color: const Color(0xfffff8eb),
-              child: Column(
-                children: [
-                  Container(
-                    alignment: Alignment.centerLeft,
-                    child: Padding(
-                      padding: const EdgeInsets.only(
-                          top: 8, bottom: 8, left: 8, right: 100),
-                      child: Container(
-                        padding: const EdgeInsets.all(10),
-                        decoration: const BoxDecoration(
-                          color: Colors.white,
-                          boxShadow: [
-                            BoxShadow(
-                                color: Color(0xffb8b8b8),
-                                offset: Offset(-1, 3),
-                                blurRadius: 5,
-                                spreadRadius: 0)
-                          ],
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(20),
-                            topRight: Radius.circular(20),
-                            bottomRight: Radius.circular(20),
-                            bottomLeft: Radius.circular(0),
-                          ),
-                        ),
-                        child: const Text("Hola Agustin Como estas? "),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    alignment: Alignment.centerRight,
-                    child: Padding(
-                      padding: const EdgeInsets.only(
-                          top: 8, bottom: 8, left: 100, right: 8),
-                      child: Container(
-                        padding: const EdgeInsets.all(10),
-                        decoration: const BoxDecoration(
-                          color: Color(0xffe2feda),
-                          boxShadow: [
-                            BoxShadow(
-                                color: Color(0xffb8b8b8),
-                                offset: Offset(-1, 3),
-                                blurRadius: 5,
-                                spreadRadius: 0)
-                          ],
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(20),
-                            topRight: Radius.circular(20),
-                            bottomRight: Radius.circular(0),
-                            bottomLeft: Radius.circular(20),
-                          ),
-                        ),
-                        child: const Text("Todo bien! Sale partidito hoy?"),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    alignment: Alignment.centerLeft,
-                    child: Padding(
-                      padding: const EdgeInsets.only(
-                          top: 8, bottom: 8, left: 8, right: 100),
-                      child: Container(
-                        padding: const EdgeInsets.all(10),
-                        decoration: const BoxDecoration(
-                          color: Colors.white,
-                          boxShadow: [
-                            BoxShadow(
-                                color: Color(0xffb8b8b8),
-                                offset: Offset(-1, 3),
-                                blurRadius: 5,
-                                spreadRadius: 0)
-                          ],
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(20),
-                            topRight: Radius.circular(20),
-                            bottomRight: Radius.circular(20),
-                            bottomLeft: Radius.circular(0),
-                          ),
-                        ),
-                        child: const Text(
-                            "Dale avisale a los pibes, a las 10 esta bien?"),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    alignment: Alignment.centerRight,
-                    child: Padding(
-                      padding: const EdgeInsets.only(
-                          top: 8, bottom: 8, left: 100, right: 8),
-                      child: Container(
-                        padding: const EdgeInsets.all(10),
-                        decoration: const BoxDecoration(
-                          color: Color(0xffe2feda),
-                          boxShadow: [
-                            BoxShadow(
-                                color: Color(0xffb8b8b8),
-                                offset: Offset(-1, 3),
-                                blurRadius: 5,
-                                spreadRadius: 0)
-                          ],
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(20),
-                            topRight: Radius.circular(20),
-                            bottomRight: Radius.circular(0),
-                            bottomLeft: Radius.circular(20),
-                          ),
-                        ),
-                        child: const Text("Espectacular ese horario"),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Row(
-            children: [
-              Expanded(
-                  child: Row(
-                children: [
-                  Expanded(
-                    child: Container(
-                        height: 60,
-                        color: const Color(0xfffff8eb),
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 8, vertical: 8),
-                          child: TextField(
-                            decoration: InputDecoration(
-                                filled: true,
-                                fillColor: Colors.white,
-                                focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(15.0),
-                                  borderSide: const BorderSide(
-                                      color: Colors.transparent, width: 0),
-                                ),
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(15.0),
-                                  borderSide: const BorderSide(
-                                      color: Colors.transparent, width: 0),
-                                ),
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(15.0),
-                                  borderSide: const BorderSide(
-                                      color: Colors.transparent, width: 0),
-                                ),
-                                contentPadding:
-                                    const EdgeInsets.symmetric(horizontal: 16),
-                                hintText: "Enviar mensaje"),
-                          ),
-                        )),
-                  ),
-                  Container(
-                    height: 60,
-                    width: 60,
-                    color: const Color(0xfffff8eb),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 4, vertical: 4),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: const Color(0xff1b7d6e),
-                          borderRadius: BorderRadius.circular(100),
-                        ),
-                        child: const Icon(
-                          Icons.send,
-                          color: Colors.white,
-                          size: 20.0,
-                          semanticLabel:
-                              'Text to announce in accessibility modes',
-                        ),
-                      ),
-                    ),
-                  )
-                ],
-              )),
-            ],
-          ),
-        ],
+      appBar: AppBar(
+        // TRY THIS: Try changing the color here to a specific color (to
+        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
+        // change color while the other colors stay the same.
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        // Here we take the value from the MyHomePage object that was created by
+        // the App.build method, and use it to set our appbar title.
+        title: Text(widget.title),
       ),
-    ));
+      body: Center(
+        // Center is a layout widget. It takes a single child and positions it
+        // in the middle of the parent.
+        child: Column(
+          // Column is also a layout widget. It takes a list of children and
+          // arranges them vertically. By default, it sizes itself to fit its
+          // children horizontally, and tries to be as tall as its parent.
+          //
+          // Column has various properties to control how it sizes itself and
+          // how it positions its children. Here we use mainAxisAlignment to
+          // center the children vertically; the main axis here is the vertical
+          // axis because Columns are vertical (the cross axis would be
+          // horizontal).
+          //
+          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
+          // action in the IDE, or press "p" in the console), to see the
+          // wireframe for each widget.
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            const Text(
+              'You have pushed the button this many times:',
+            ),
+            Text(
+              '$_counter',
+              style: Theme.of(context).textTheme.headlineMedium,
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _incrementCounter,
+        tooltip: 'Increment',
+        child: const Icon(Icons.add),
+      ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
   }
 }
+*/
