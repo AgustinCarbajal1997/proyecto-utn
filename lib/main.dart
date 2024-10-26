@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/screens/chat_room.dart';
 import 'package:flutter_application_1/screens/home.dart';
@@ -14,10 +16,21 @@ class MiAplicacion extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-        title: "Mi app en clase", home: ChatRoom(title: "Titulo pagina"));
+    return MaterialApp(
+      title: "Material App",
+      initialRoute: "/",
+      routes: {
+        "/": (context) => const Login(title: "data"),
+        "/signup": (context) => const Signup(title: "data"),
+        "/home": (context) => const Home(title: "data"),
+        "/chatroom": (context) => const ChatRoom(title: "data"),
+      },
+    );
   }
 }
+
+
+
 
 
 

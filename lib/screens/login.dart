@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 //login
 class Login extends StatefulWidget {
@@ -86,13 +89,16 @@ class _LoginState extends State<Login> {
               ElevatedButton(
                 onPressed: () {
                   // Validate returns true if the form is valid, or false otherwise.
-                  if (_formKey.currentState!.validate()) {
-                    // If the form is valid, display a snackbar. In the real world,
-                    // you'd often call a server or save the information in a database.
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('Processing Data')),
-                    );
-                  }
+                  //if (_formKey.currentState!.validate()) {
+                  //  // If the form is valid, display a snackbar. In the real world,
+                  //  // you'd often call a server or save the information in a database.
+                  //  ScaffoldMessenger.of(context).showSnackBar(
+                  //    const SnackBar(content: Text('Processing Data')),
+                  //  );
+                  //}
+                  Navigator.pushNamed(context, "/home");
+                  //fetchUsers();
+                  //Navigator.pushReplacementNamed(context, "/home") reemplaza
                 },
                 child: const Text('Iniciar Sesión'),
               ),
